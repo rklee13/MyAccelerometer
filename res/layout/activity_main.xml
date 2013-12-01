@@ -8,36 +8,32 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-       <TextView
+       <EditText
+        android:id="@+id/MyText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/x_coor"
-        />
-        
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/y_coor"
-        android:layout_below="@+id/x_coor"
-        android:layout_marginTop="30dp"
-        />
-        
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/z_coor"
-        android:layout_below="@+id/y_coor"
-        android:layout_marginTop="30dp"
-        />
-           
+        android:hint="@string/MyTextHint" />
+    
     <Button
-        android:layout_width="fill_parent" 
+        android:id="@+id/SubmitIp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/MyButton"
-        android:layout_below="@+id/z_coor"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" 
+        android:onClick="sendParams"
+        android:text="@string/SubmitButtonText">
+</Button>
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:id="@+id/error"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MyText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        
+        >
+        
+    </TextView>
 </RelativeLayout>

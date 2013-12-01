@@ -1,11 +1,16 @@
 package com.smarts.myaccelerometer;
 
+import java.io.IOException;
+
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements SensorEventListener {
@@ -32,7 +37,17 @@ public class MainActivity extends Activity implements SensorEventListener {
     	sensor.registerListener(this, accel, SensorManager.SENSOR_DELAY_FASTEST); 
     }
 
-
+    public void sendParams(View view) throws IOException
+    {
+     Intent intent_main_activity = new Intent(this, MySocketHandler.class);
+     
+     EditText editText = (EditText) findViewById(R.id.MyText); //get data from textbox
+     String MyIpAddress = editText.getText().toString();
+     
+     intent_main_activity.putExtra("IpAddress", MyIpAddress);
+     startActivity(intent_main_activity);
+     
+    }
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
